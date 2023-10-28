@@ -47,9 +47,16 @@ class _HomeDataScreenState extends State<HomeDataScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       key: _key,
+      backgroundColor: const Color.fromRGBO(58, 66, 86, 1.0),
       appBar: AppBar(
-        leading: BackButton(
-          onPressed: () => Navigator.of(context).pop(),
+        elevation: 0.1,
+        backgroundColor: const Color.fromRGBO(58, 66, 86, 1.0),
+        title: const Text('Data Screen'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: SingleChildScrollView(
@@ -67,42 +74,38 @@ class _HomeDataScreenState extends State<HomeDataScreen> {
               if (snapshot.hasData) {
                 final homeData = snapshot.data as DummyModel;
                 return Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              homeData.id.toString(),
-                              style: GoogleFonts.poppins(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(width: 20,),
-                            Expanded(
-                              child: Text(
-                                homeData.title ?? '',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 18, fontWeight: FontWeight.bold,),
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
+                  child: Container(
+                    decoration: const BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+                    child: ListTile(
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                        leading: Container(
+                          padding: const EdgeInsets.only(right: 12.0),
+                          decoration: const BoxDecoration(
+                              border: Border(
+                                  right: BorderSide(width: 1.0, color: Colors.white24))),
+                          child:  Text(
+                            homeData.id.toString(),
+                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        title: Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text(
+                            homeData.title ?? '',
+                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+
+                        subtitle: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            const Icon(Icons.linear_scale, color: Colors.yellowAccent),
+                            const SizedBox(width: 10,),
+                            Expanded(child: Text(homeData.body ?? '', style: const TextStyle(color: Colors.white)))
                           ],
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          homeData.body ?? '',
-                          style: GoogleFonts.poppins(
-                            fontSize: 13,
-                          ),
-                        )
-                      ],
-                    ),
+                        trailing:
+                        const Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0)),
                   ),
                 );
               }
