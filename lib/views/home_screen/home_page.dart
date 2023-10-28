@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:sugandh/models/dummymodel.dart';
-import 'package:sugandh/providers/homeProvider.dart';
-import 'package:sugandh/views/homeDataScreen.dart';
+
+import '../../models/dummymodel.dart';
+import '../../providers/homeProvider.dart';
+import '../homeDataScreen.dart';
 
 class HomePage extends StatefulWidget {
   

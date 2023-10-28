@@ -1,3 +1,5 @@
+import 'package:aravind/routes.dart';
+import 'package:aravind/views/home_screen/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -6,8 +8,6 @@ import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:sugandh/routes.dart';
-import 'package:sugandh/views/home_screen/home_page.dart';
 import 'constant/providerTree.dart';
 
 void main() async {

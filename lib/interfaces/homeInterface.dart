@@ -1,10 +1,10 @@
 
 import 'dart:developer';
 
-import 'package:sugandh/models/dummymodel.dart';
 
 import '../api/api_methods.dart';
 import '../api/api_request.dart';
+import '../models/dummymodel.dart';
 class HomeInterface {
   static Future<List<DummyModel>> fetchHomeData() async {
     try {
