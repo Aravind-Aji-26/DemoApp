@@ -103,9 +103,7 @@ class _HomeDataScreenState extends State<HomeDataScreen> {
                             const SizedBox(width: 10,),
                             Expanded(child: Text(homeData.body ?? '', style: const TextStyle(color: Colors.white)))
                           ],
-                        ),
-                        trailing:
-                        const Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0)),
+                        )),
                   ),
                 );
               }
